@@ -1,0 +1,67 @@
+1.	Consider a relation R having attributes as R(ABCD), functional dependencies are given below: AB->C, C->D, D->A Identify the set of candidate keys possible in relation R. List all the set of prime and non-prime attributes. 
+
+	AB+ = ABCD 
+	CB+ =CBDA 
+	DB+ =DBAC
+
+Candidate keys =AB, CB, DB 
+Prime attributes= A, B, C, D 
+This is in 3NF as all attributes are prime
+
+2.	Relation R(ABCDE) having functional dependencies as: A->D, B->A, BC->D, AC->BE Identify the set of candidate keys possible in relation R. List all the set of prime and non prime attributes.
+
+AC+=ACBED 
+BC+=BCDAE
+
+Candidate Keys= AC, BC 
+Prime Attributes=A,B,C 
+Non-Prime Attributes=E,D 
+This is 1NF because as we know in 2NF there should not be any partial dependencies but here A the subset of ‘AC’ candidate key is determining the ‘D’ a non-prime attribute.
+
+3.	Consider a relation R having attributes as R(ABCDE), functional dependencies are given below: B->A, A->C, BC->D, AC->BE. Identify the set of candidate keys possible in relation R. List all the set of prime and non-prime attributes.
+
+B+=ABCDE 
+A+=ACBED
+
+Candidate Keys= B, A 
+Prime Attributes=B, A 
+Non-Prime Attributes= E, D, C 
+
+This is a BCNF as all the LHS of dependencies are super keys.
+
+4.	Consider a relation R having attributes as R(ABCDEF), functional dependencies are given below: A->BCD, BC->DE, B->D, D->A Identify the set of candidate keys possible in relation R. List all the set of prime and non-prime attributes.
+
+AF+=FABCDE 
+BF+=FBDACE 
+DF+=DFABCE 
+Candidate Keys=AF, BF, DF 
+Prime Attributes=A, F, B, D 
+Non-Prime Attributes= E, C 
+
+This is in 1 NF because it violates 2NF as here C depends on part of a candidate key (A) — this is exactly a partial dependency. Therefore, the relation violates 2NF.
+
+5.	Debix Pvt Ltd needs to maintain database having dependent attributes ABCDEF. These attributes are functionally dependent on each other for which functionally dependency set F given as: {A -> BC, D -> E, BC -> D, A -> D} Consider a universal relation R1(A, B, C, D, E, F) with functional dependency set F, also all attributes are simple and take atomic values only. Find the highest normal form along with the candidate keys with prime and non-prime attribute.
+
+	AF+=AFBCDE 
+Prime Attributes=A, F 
+Non-Prime Attributes=B, C, D, E 
+
+It is in 1NF because it violates 2NF as here there is a partial dependency, there is a subset of candidate key determining the non-prime attribute.
+	
+6.	Designing a student database involves certain dependencies which are listed below:
+X ->Y, WZ ->X, WZ ->Y, Y ->W, Y ->X, Y ->Z
+The task here is to remove all the redundant FDs for efficient working   of the student database management system. 
+
+The final, non-redundant set of FDs for the student database is:
+
+X→Y, WZ→X, Y→W, Y→X, Y→Z
+
+A functional dependency is redundant if it can be logically derived from other FDs in the set.
+In this case, WZ→Y is redundant because it can be inferred from the combination of WZ→X and X→Y.
+
+This means that if we know the values for W and Z, we can determine X, and knowing X allows us to determine Y. Therefore, the separate rule WZ→Y isn't needed.
+
+The only redundant functional dependency (FD) is WZ→Y.
+
+	
+
